@@ -13,9 +13,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@NamedQuery(name = Patient.FIND_ALL, query = "SELECT p FROM Patient p")
 public class Patient {
-    public static final String FIND_ALL = "Patient.findAll";
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
