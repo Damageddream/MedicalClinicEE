@@ -6,6 +6,7 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.example.medicalclinicee.entity.Patient;
+import org.example.medicalclinicee.exception.PatientNotFoundException;
 import org.example.medicalclinicee.repository.PatientRepository;
 
 import java.util.Collection;
@@ -23,6 +24,10 @@ public class PatientService {
     }
 
     public Patient getPatientById(Long id) {
+        Patient patient = patientRepository.findPatientById(id);
+        if(patient == null){
+            throw new PatientNotFoundException("Patient with id: "+id+" not found");
+        }
         return patientRepository.findPatientById(id);
     }
 
