@@ -28,7 +28,7 @@ public class PatientService {
         if(patient == null){
             throw new PatientNotFoundException("Patient with id: "+id+" not found");
         }
-        return patientRepository.findPatientById(id);
+        return patient;
     }
 
     public Collection<Patient> findAll() {
